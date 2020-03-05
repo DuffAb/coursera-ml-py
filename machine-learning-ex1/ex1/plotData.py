@@ -11,7 +11,10 @@ def plot_data(x, y):
     # Hint : You can use the 'marker' parameter in the "plt.scatter" function to change the marker type (e.g. "x", "o").
     #        Furthermore, you can change the color of markers with 'c' parameter.
 
-
+    # plt.plot(x,y)
+    plt.scatter(x, y, s=None, c='r', marker="x", label="Training data") # 画离散点
+    plt.ylabel('Profit in $10,1000s')
+    plt.xlabel('Population of City in 10,1000s')
+    plt.legend(loc='upper right')
     # ===========================================================
-
     plt.show()
