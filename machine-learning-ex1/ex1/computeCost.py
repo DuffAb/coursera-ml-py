@@ -13,8 +13,9 @@ def compute_cost(X, y, theta):
     # print(theta.shape)
     # print(y.shape)
 
-    # cost = sum(np.power((X @ theta - y), 2))/(2*m) # 正确
-    cost = sum((X @ theta - y)**2) / (2 * m)         # 正确
+    inner = np.power((X @ theta - y), 2)# 正确
+    #inner = (X @ theta - y)**2          # 正确
+    cost = np.sum(inner) / (2 * len(X))
     # ==========================================================
 
     return cost

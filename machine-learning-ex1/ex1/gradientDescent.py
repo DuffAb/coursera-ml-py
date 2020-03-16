@@ -39,6 +39,7 @@ def gradient_descent_multi(X, y, theta, alpha, num_iters):
         # Instructions : Perform a single gradient step on the parameter vector theta
         #
 
+        theta = theta - alpha * ((X @ theta - y).T @ X).T / m
 
         # ===========================================================
         # Save the cost every iteration

@@ -1,3 +1,21 @@
+# Machine Learning Online Class - Exercise 2: Logistic Regression
+#
+#  Instructions
+#  ------------
+#
+#  This file contains code that helps you get started on the logistic
+#  regression exercise. You will need to complete the following functions
+#  in this exericse:
+#
+#     sigmoid.py
+#     costFunction.py
+#     predict.py
+#     costFunctionReg.py
+#
+#  For this exercise, you will not need to change any code in this file,
+#  or any other files other than those mentioned above.
+
+
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.optimize as opt
@@ -15,11 +33,15 @@ X = data[:, 0:2]
 y = data[:, 2]
 
 # ===================== Part 1: Plotting =====================
+#  We start the exercise by first plotting the data to understand the
+#  the problem we are working with.
+
 print('Plotting Data with + indicating (y = 1) examples and o indicating (y = 0) examples.')
 
 plot_data(X, y)
 
 plt.axis([30, 100, 30, 100])
+# Specified in plot order.  按绘图顺序指定
 plt.legend(['Admitted', 'Not admitted'], loc=1)
 plt.xlabel('Exam 1 score')
 plt.ylabel('Exam 2 score')
@@ -38,7 +60,7 @@ input('Program paused. Press ENTER to continue')
 X = np.c_[np.ones(m), X]
 
 # Initialize fitting parameters
-initial_theta = np.zeros(n + 1)
+initial_theta = np.zeros(n + 1) # 初始化权重theta
 
 # Compute and display initial cost and gradient
 cost, grad = cf.cost_function(initial_theta, X, y)
@@ -82,7 +104,7 @@ print('Expected cost (approx): 0.203')
 print('theta: \n{}'.format(theta))
 print('Expected Theta (approx): \n-25.161\n0.206\n0.201')
 
-# Plot boundary
+# Plot boundary 画出二分边界
 pdb.plot_decision_boundary(theta, X, y)
 
 plt.xlabel('Exam 1 score')

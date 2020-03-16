@@ -1,3 +1,30 @@
+# Machine Learning Online Class
+#  Exercise 1: Linear regression with multiple variables
+#
+#  Instructions
+#  ------------
+#
+#  This file contains code that helps you get started on the
+#  linear regression exercise.
+#
+#  You will need to complete the following functions in this
+#  exericse:
+#
+#     warmUpExercise.py
+#     plotData.py
+#     gradientDescent.py
+#     computeCost.py
+#     gradientDescentMulti.py
+#     computeCostMulti.py
+#     featureNormalize.py
+#     normalEqn.py
+#
+#  For this part of the exercise, you will need to change some
+#  parts of the code below for various experiments (e.g., changing
+#  learning rates).
+#
+
+
 import matplotlib.pyplot as plt
 import numpy as np
 from featureNormalize import *
@@ -26,7 +53,7 @@ print('Normalizing Features ...')
 X, mu, sigma = feature_normalize(X)
 X = np.c_[np.ones(m), X]  # Add a column of ones to X
 
-# ===================== Part 2: Gradient Descent =====================
+# ===================== Part 2: Gradient Descent 梯度下降 =====================
 
 # ===================== Your Code Here =====================
 # Instructions : We have provided you with the following starter
@@ -57,7 +84,7 @@ num_iters = 400
 theta = np.zeros(3)
 theta, J_history = gradient_descent_multi(X, y, theta, alpha, num_iters)
 
-# Plot the convergence graph
+# Plot the convergence graph |  绘制 cost 的收敛图
 plt.figure()
 plt.plot(np.arange(J_history.size), J_history)
 plt.xlabel('Number of iterations')
@@ -71,7 +98,11 @@ print('Theta computed from gradient descent : \n{}'.format(theta))
 # Recall that the first column of X is all-ones. Thus, it does
 # not need to be normalized.
 price = 0  # You should change this
-
+#price = theta.T @ np.array([1, 1650, 3])
+predict = np.array([1650, 3])
+predict = (predict - mu) / sigma
+predict = np.r_[(1, predict)]
+price = np.dot(predict, theta)
 
 # ==========================================================
 
@@ -110,7 +141,9 @@ print('Theta computed from the normal equations : \n{}'.format(theta))
 # Estimate the price of a 1650 sq-ft, 3 br house
 # ===================== Your Code Here =====================
 price = 0  # You should change this
-
+predict = np.array([1650, 3])
+predict = np.r_[(1, predict)]
+price = np.dot(predict, theta)
 
 # ==========================================================
 
