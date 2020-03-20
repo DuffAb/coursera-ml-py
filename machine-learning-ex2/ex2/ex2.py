@@ -29,6 +29,15 @@ plt.ion()
 # Load data
 # The first two columns contain the exam scores and the third column contains the label.
 data = np.loadtxt('ex2data1.txt', delimiter=',')
+print('plot_decision_boundary data[0, 0:1] = \n{}'.format(data[0, 0:1]))
+print('plot_decision_boundary data[0, 0:2] = \n{}'.format(data[0, 0:2]))
+print('plot_decision_boundary data[0, 0:3] = \n{}'.format(data[0, 0:3]))
+print('plot_decision_boundary data[0, 1:1] = \n{}'.format(data[0, 1:1]))
+print('plot_decision_boundary data[0, 1:2] = \n{}'.format(data[0, 1:2]))
+print('plot_decision_boundary data[0, 1:3] = \n{}'.format(data[0, 1:3]))
+print('plot_decision_boundary data[0, 2:1] = \n{}'.format(data[0, 2:1]))
+print('plot_decision_boundary data[0, 2:2] = \n{}'.format(data[0, 2:2]))
+print('plot_decision_boundary data[0, 2:3] = \n{}'.format(data[0, 2:3]))
 X = data[:, 0:2]
 y = data[:, 2]
 
@@ -76,7 +85,7 @@ print('Expected gradients (approx): \n-0.1000\n-12.0092\n-11.2628')
 test_theta = np.array([-24, 0.2, 0.2])
 cost, grad = cf.cost_function(test_theta, X, y)
 
-print('Cost at test theta (zeros): {}'.format(cost))
+print('Cost at test theta (zeros): {:0.3f}'.format(cost))
 print('Expected cost (approx): 0.218')
 print('Gradient at test theta: \n{}'.format(grad))
 print('Expected gradients (approx): \n0.043\n2.566\n2.647')
