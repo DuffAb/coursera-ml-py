@@ -1,6 +1,6 @@
 import numpy as np
 
-def normal_eqn(X, y):
+def normal_eqn(X, y):   # 正规方程
     theta = np.zeros((X.shape[1], 1))
 
     # ===================== Your Code Here =====================

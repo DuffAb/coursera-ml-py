@@ -50,8 +50,8 @@ input('Program paused. Press ENTER to continue')
 # Scale features and set them to zero mean
 print('Normalizing Features ...')
 
-X, mu, sigma = feature_normalize(X)
-X = np.c_[np.ones(m), X]  # Add a column of ones to X
+X, mu, sigma = feature_normalize(X) # 特征缩放，返回缩放后的特征值，每一列的均值，每一列的方差
+X = np.c_[np.ones(m), X]            # Add a column of ones to X
 
 # ===================== Part 2: Gradient Descent 梯度下降 =====================
 
@@ -133,7 +133,7 @@ m = y.size
 # Add intercept term to X
 X = np.c_[np.ones(m), X]
 
-theta = normal_eqn(X, y)
+theta = normal_eqn(X, y)    # 使用正规方程求解 theta
 
 # Display normal equation's result
 print('Theta computed from the normal equations : \n{}'.format(theta))
